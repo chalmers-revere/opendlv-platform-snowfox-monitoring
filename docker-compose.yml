@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-version: '2'
+version: '2.3'
 
 services:
   collectd:
@@ -31,3 +31,4 @@ services:
     - /home.new/brick/recordings.local:/rec.local:ro
     - /home.new/brick/recordings.sda1:/rec.sda1:ro
     - ./collectd/collectd.conf:/etc/collectd/collectd.conf
+    runtime: nvidia
