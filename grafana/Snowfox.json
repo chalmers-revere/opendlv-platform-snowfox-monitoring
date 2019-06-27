@@ -2162,7 +2162,7 @@
         "#299c46"
       ],
       "decimals": 1,
-      "format": "Bps",
+      "format": "ms",
       "gauge": {
         "maxValue": 1000000,
         "minValue": 2,
@@ -2173,10 +2173,10 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 12,
+        "x": 4,
         "y": 17
       },
-      "id": 65,
+      "id": 79,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2229,7 +2229,133 @@
               "type": "fill"
             }
           ],
-          "measurement": "interface_rx",
+          "measurement": "ping_value",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM \"ping_value\" WHERE (\"host\" = 'brick' AND \"type_instance\" = '10.42.42.41' AND \"type\" = 'ping') AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=",
+              "value": "brick"
+            },
+            {
+              "condition": "AND",
+              "key": "type_instance",
+              "operator": "=",
+              "value": "10.42.42.40"
+            },
+            {
+              "condition": "AND",
+              "key": "type",
+              "operator": "=",
+              "value": "ping"
+            }
+          ]
+        }
+      ],
+      "thresholds": "0.1,0.1",
+      "title": "Trimble",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "decimals": 1,
+      "format": "ms",
+      "gauge": {
+        "maxValue": 1000000,
+        "minValue": 2,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 7,
+        "y": 17
+      },
+      "id": 80,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping_value",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2244,38 +2370,156 @@
               },
               {
                 "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "type": "last"
               }
             ]
           ],
           "tags": [
             {
-              "key": "type",
-              "operator": "=",
-              "value": "if_octets"
-            },
-            {
-              "condition": "AND",
-              "key": "instance",
-              "operator": "=",
-              "value": "enp11s0"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=",
               "value": "brick"
+            },
+            {
+              "condition": "AND",
+              "key": "type_instance",
+              "operator": "=",
+              "value": "10.42.42.40"
+            },
+            {
+              "condition": "AND",
+              "key": "type",
+              "operator": "=",
+              "value": "ping"
             }
           ]
         }
       ],
-      "thresholds": "1,1",
+      "thresholds": "0.1,0.1",
+      "title": "Applanix",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "decimals": 1,
+      "format": "ms",
+      "gauge": {
+        "maxValue": 1000000,
+        "minValue": 2,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 10,
+        "y": 17
+      },
+      "id": 84,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping_value",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=",
+              "value": "brick"
+            },
+            {
+              "condition": "AND",
+              "key": "type_instance",
+              "operator": "=",
+              "value": "10.42.42.70"
+            },
+            {
+              "condition": "AND",
+              "key": "type",
+              "operator": "=",
+              "value": "ping"
+            }
+          ]
+        }
+      ],
+      "thresholds": "0.1,0.1",
       "title": "HDL32e",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -2292,7 +2536,7 @@
         "#299c46"
       ],
       "decimals": 1,
-      "format": "Bps",
+      "format": "ms",
       "gauge": {
         "maxValue": 1000000,
         "minValue": 2,
@@ -2306,7 +2550,7 @@
         "x": 15,
         "y": 17
       },
-      "id": 66,
+      "id": 81,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2359,7 +2603,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "interface_rx",
+          "measurement": "ping_value",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2374,38 +2618,32 @@
               },
               {
                 "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "type": "last"
               }
             ]
           ],
           "tags": [
             {
-              "key": "type",
-              "operator": "=",
-              "value": "if_octets"
-            },
-            {
-              "condition": "AND",
-              "key": "instance",
-              "operator": "=",
-              "value": "enp4s0"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=",
               "value": "brick"
+            },
+            {
+              "condition": "AND",
+              "key": "type_instance",
+              "operator": "=",
+              "value": "10.42.45.50"
+            },
+            {
+              "condition": "AND",
+              "key": "type",
+              "operator": "=",
+              "value": "ping"
             }
           ]
         }
       ],
-      "thresholds": "100,100",
+      "thresholds": "0.1,0.1",
       "title": "Axis",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -2422,7 +2660,7 @@
         "#299c46"
       ],
       "decimals": 1,
-      "format": "Bps",
+      "format": "ms",
       "gauge": {
         "maxValue": 1000000,
         "minValue": 2,
@@ -2436,7 +2674,7 @@
         "x": 18,
         "y": 17
       },
-      "id": 67,
+      "id": 82,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2489,7 +2727,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "interface_rx",
+          "measurement": "ping_value",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2504,38 +2742,32 @@
               },
               {
                 "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "type": "last"
               }
             ]
           ],
           "tags": [
             {
-              "key": "type",
-              "operator": "=",
-              "value": "if_octets"
-            },
-            {
-              "condition": "AND",
-              "key": "instance",
-              "operator": "=",
-              "value": "enp5s0"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=",
               "value": "brick"
+            },
+            {
+              "condition": "AND",
+              "key": "type_instance",
+              "operator": "=",
+              "value": "10.42.43.50"
+            },
+            {
+              "condition": "AND",
+              "key": "type",
+              "operator": "=",
+              "value": "ping"
             }
           ]
         }
       ],
-      "thresholds": "1,1",
+      "thresholds": "0.1,0.1",
       "title": "Basler left",
       "type": "singlestat",
       "valueFontSize": "50%",
@@ -2554,7 +2786,7 @@
       "decimals": 1,
       "format": "Bps",
       "gauge": {
-        "maxValue": 1000000,
+        "maxValue": 125000,
         "minValue": 2,
         "show": false,
         "thresholdLabels": false,
@@ -2566,7 +2798,7 @@
         "x": 21,
         "y": 17
       },
-      "id": 39,
+      "id": 83,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2652,15 +2884,15 @@
             },
             {
               "condition": "AND",
-              "key": "instance",
-              "operator": "=",
-              "value": "enp0s25"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=",
               "value": "brick"
+            },
+            {
+              "condition": "AND",
+              "key": "instance",
+              "operator": "=",
+              "value": "enp0s25"
             }
           ]
         }
@@ -3124,5 +3356,5 @@
   "timezone": "",
   "title": "Snowfox",
   "uid": "PrNmXhRZz",
-  "version": 4
+  "version": 5
 }
