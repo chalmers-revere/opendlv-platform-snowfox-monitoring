@@ -2508,7 +2508,7 @@
               "condition": "AND",
               "key": "type_instance",
               "operator": "=",
-              "value": "10.42.42.70"
+              "value": "10.42.44.70"
             },
             {
               "condition": "AND",
@@ -3356,5 +3356,5 @@
   "timezone": "",
   "title": "Snowfox",
   "uid": "PrNmXhRZz",
-  "version": 5
+  "version": 6
 }
