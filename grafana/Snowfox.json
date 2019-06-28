@@ -1525,6 +1525,12 @@
               "key": "instance",
               "operator": "=",
               "value": "can0"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=",
+              "value": "goldenpc"
             }
           ]
         }
@@ -1648,13 +1654,19 @@
               "condition": "AND",
               "key": "instance",
               "operator": "=",
-              "value": "can0"
+              "value": "can1"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=",
+              "value": "goldenpc"
             }
           ]
         }
       ],
       "thresholds": "1,1",
-      "title": "can0",
+      "title": "can1",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [],
@@ -1773,6 +1785,12 @@
               "key": "instance",
               "operator": "=",
               "value": "can2"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=",
+              "value": "goldenpc"
             }
           ]
         }
@@ -1897,6 +1915,12 @@
               "key": "instance",
               "operator": "=",
               "value": "can3"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=",
+              "value": "goldenpc"
             }
           ]
         }
@@ -3728,5 +3752,5 @@
   "timezone": "",
   "title": "Snowfox",
   "uid": "PrNmXhRZz",
-  "version": 7
+  "version": 8
 }
